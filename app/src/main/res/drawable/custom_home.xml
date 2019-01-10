@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="20dp"
+    android:height="22dp"
+    android:viewportWidth="20"
+    android:viewportHeight="22">
+
+    <group
+            android:name="Symbols">
+        <group
+                android:name="Tab-Bar">
+            <group
+                    android:name="TAB-BAR">
+                <group
+                        android:name="buttons/home">
+                    <path
+                        android:name="Combined-Shape"
+                        android:fillColor="#000000"
+                        android:strokeWidth="1"
+                        android:pathData="M16,21 L19,21 C19.5523,21,20,20.5523,20,20 L20,9.48908 L12,3.26686 L4,9.48908
+L4,20 C4,20.5523,4.44772,21,5,21 L8,21 L8,12 C8,11.4477,8.44771,11,9,11 L15,11
+C15.5523,11,16,11.4477,16,12 L16,21 Z M14,21 L14,13 L10,13 L10,21 L14,21 Z
+M2.38606,8.21065 L11.3861,1.21065
+C11.7472,0.929784,12.2528,0.929784,12.6139,1.21065 L21.6139,8.21065
+C21.8575,8.4001,22,8.69141,22,9 L22,20 C22,21.6569,20.6569,23,19,23 L5,23
+C3.34315,23,2,21.6569,2,20 L2,9 C2,8.69141,2.14247,8.4001,2.38606,8.21065 Z" />
+                    <path
+                        android:name="Combined-Shape"
+                        android:fillColor="#000000"
+                        android:strokeWidth="1"
+                        android:pathData="M16,21 L19,21 C19.5523,21,20,20.5523,20,20 L20,9.48908 L12,3.26686 L4,9.48908
+L4,20 C4,20.5523,4.44772,21,5,21 L8,21 L8,12 C8,11.4477,8.44771,11,9,11 L15,11
+C15.5523,11,16,11.4477,16,12 L16,21 Z M14,21 L14,13 L10,13 L10,21 L14,21 Z
+M2.38606,8.21065 L11.3861,1.21065
+C11.7472,0.929784,12.2528,0.929784,12.6139,1.21065 L21.6139,8.21065
+C21.8575,8.4001,22,8.69141,22,9 L22,20 C22,21.6569,20.6569,23,19,23 L5,23
+C3.34315,23,2,21.6569,2,20 L2,9 C2,8.69141,2.14247,8.4001,2.38606,8.21065 Z" />
+                </group>
+            </group>
+        </group>
+    </group>
+</vector>
