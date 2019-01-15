@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "1007572944431",
+    "firebase_url": "https://gastet-4cfd2.firebaseio.com",
+    "project_id": "gastet-4cfd2",
+    "storage_bucket": "gastet-4cfd2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1007572944431:android:af56f4a0017ba3ee",
+        "android_client_info": {
+          "package_name": "com.example.alextrujillo.gastetandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1007572944431-vpc1vaclrcvijcebdege61mib53d0rrl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.alextrujillo.gastetandroid",
+            "certificate_hash": "8bc17e335cc42b6f8ded90672431287441e57dde"
+          }
+        },
+        {
+          "client_id": "1007572944431-51r3r96otjlfsvgnvqip20kl8bg7v600.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQ2X77wr7SDtPkSNO1ZfztPMlXdylttBY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1007572944431-51r3r96otjlfsvgnvqip20kl8bg7v600.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1007572944431-2bh47id9ke2h2c49g2cp3c4i4mt9p1b5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ximeft29.Gastet"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,8 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/navigationui" app:startDestination="@id/mainFragment">
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/navigationui"
+            app:startDestination="@id/loginFragment">
 
-    <fragment android:id="@+id/mainFragment" android:name="com.example.alextrujillo.gastetandroid.ui.main.MainFragment"
-              android:label="MainFragment"/>
+
+    <fragment android:id="@+id/postFragment"
+              android:name="com.example.alextrujillo.gastetandroid.ui.ui.PostFragment"
+              android:label="fragment_post"
+              tools:layout="@layout/fragment_post">
+    </fragment>
+
+    <fragment android:id="@+id/profileFragment"
+              android:name="com.example.alextrujillo.gastetandroid.ui.ui.ProfileFragment"
+              android:label="fragment_profile"
+              tools:layout="@layout/fragment_profile">
+    </fragment>
+
+    <fragment android:id="@+id/homeFragment"
+              android:name="com.example.alextrujillo.gastetandroid.ui.ui.HomeFragment"
+              android:label="fragment_home"
+              tools:layout="@layout/fragment_home">
+    </fragment>
+
+
+    <fragment android:id="@+id/registrationFragment"
+              android:name="com.example.alextrujillo.gastetandroid.ui.ui.RegistrationFragment"
+              android:label="fragment_registration"/>
+
+    <fragment android:id="@+id/loginFragment"
+              android:name="com.example.alextrujillo.gastetandroid.ui.ui.LoginFragment"
+              android:label="@layout/fragment_login">
+        <action android:id="@+id/action_loginFragment_to_registrationFragment"
+                app:destination="@id/registrationFragment"/>
+        <action android:id="@+id/action_loginFragment_to_homeFragment2" app:destination="@id/homeFragment"/>
+    </fragment>
+
 </navigation>
