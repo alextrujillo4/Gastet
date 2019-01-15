@@ -33,7 +33,8 @@
               android:name="com.example.alextrujillo.gastetandroid.ui.ui.LoginFragment"
               android:label="@layout/fragment_login">
         <action android:id="@+id/action_loginFragment_to_registrationFragment"
-                app:destination="@id/registrationFragment"/>
+                app:destination="@id/registrationFragment"
+        app:popUpToInclusive="true"/>
         <action android:id="@+id/action_loginFragment_to_homeFragment2" app:destination="@id/homeFragment"/>
     </fragment>
 

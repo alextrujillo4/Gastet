@@ -26,7 +26,6 @@ class HomeFragment : androidx.fragment.app.Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val v : View =  inflater.inflate(R.layout.fragment_home, container, false)
-        Log.w("HomeFragment: ","Entrando...")
         return v
     }
 

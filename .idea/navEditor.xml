@@ -82,27 +82,6 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="splashFragment">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="-590" />
-                            <option name="y" value="-310" />
-                          </Point>
-                        </option>
-                        <option name="myPositions">
-                          <map>
-                            <entry key="action_splashFragment_to_loginFragment">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                          </map>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
                 </map>
               </option>
             </LayoutPositions>

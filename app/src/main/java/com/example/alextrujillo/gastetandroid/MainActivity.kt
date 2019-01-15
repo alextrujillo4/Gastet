@@ -16,10 +16,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentManager
-import androidx.navigation.NavController
-import androidx.navigation.NavDestination
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
+import androidx.navigation.*
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -38,10 +35,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,NavController.OnD
         mAuth = FirebaseAuth.getInstance()
         if (FirebaseAuth.getInstance().currentUser == null){
             bottomNavigationView.visibility = View.GONE
-
+            mainAppBarLayout.visibility = View.GONE
         }else{
             bottomNavigationView.visibility =  View.VISIBLE
-
+            mainAppBarLayout.visibility=  View.VISIBLE
         }
     }
 
@@ -85,22 +82,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,NavController.OnD
             val navHostFragment = supportFragmentManager.findFragmentById(R.id.my_nav_host_fragment) as NavHostFragment?
             NavigationUI.setupWithNavController(bottomNavigationView, navHostFragment!!.getNavController())
             bottomNavigationView.visibility =  View.VISIBLE
-
+            mainAppBarLayout.visibility=  View.VISIBLE
 
     }
+
+
 
     override fun onSupportNavigateUp() =
         Navigation.findNavController(this, R.id.my_nav_host_fragment).navigateUp()
 
 
-    fun setStatusBarColor(view: View, activity: Activity) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            var flags = view.systemUiVisibility
-            flags = flags or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-            view.systemUiVisibility = flags
-            activity.window.statusBarColor = Color.rgb(200,147,56) //Secondary Color RGB
-        }
-    }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
@@ -110,10 +101,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,NavController.OnD
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
         if (id == R.id.cerrarSesion) {
-            // do something
+            FirebaseAuth.getInstance().signOut()
+            bottomNavigationView.visibility = View.GONE
+            mainAppBarLayout.visibility = View.GONE
+            findNavController(R.id.my_nav_host_fragment).navigate(R.id.loginFragment,null, NavOptions.Builder()
+                    .setPopUpTo(R.id.homeFragment, true)
+                    .build())
         }
         return super.onOptionsItemSelected(item)
     }
+
 
 
 
