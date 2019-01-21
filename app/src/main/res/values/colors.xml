@@ -26,4 +26,8 @@
     <color name="blackColor">#111</color>
     <color name="grayColor">#999</color>
 
+
+
+    <color name="transparent">#00000000</color>
+
 </resources>

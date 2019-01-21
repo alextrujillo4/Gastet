@@ -8,12 +8,14 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.NavOptions
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.NavHostFragment
 import com.example.alextrujillo.gastetandroid.R
 import com.google.android.material.button.MaterialButton
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.main_activity.*
+import androidx.navigation.*
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,7 +63,7 @@ class LoginFragment : androidx.fragment.app.Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v!!.id) {
             R.id.loginRegistrarButton -> {
-                Navigation.findNavController(this?.activity!!, R.id.my_nav_host_fragment)
+                Navigation.findNavController(this.activity!!, R.id.my_nav_host_fragment)
                     .navigate(R.id.registrationFragment)
             }
             R.id.loginingresarButton -> {

@@ -63,7 +63,8 @@
             android:theme="@style/BottomNavigationTheme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:menu="@menu/navigation_menu" app:labelVisibilityMode="unlabeled"
+            app:menu="@menu/navigation_menu"
+            app:labelVisibilityMode="unlabeled"
     />
 
 </LinearLayout>

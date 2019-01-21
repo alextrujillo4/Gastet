@@ -47,8 +47,11 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:' + rootProject.appCompatVersion
     implementation 'androidx.cardview:cardview:' + rootProject.cardViewVersion
     implementation 'androidx.recyclerview:recyclerview:' + rootProject.recyclerVersion
-
     implementation 'androidx.constraintlayout:constraintlayout:' + rootProject.constraintLayoutVersion
+
+    //UI
+    implementation 'com.github.savvyapps:ToggleButtonLayout:1.2.0'
+
 
 }
 apply plugin: 'com.google.gms.google-services'

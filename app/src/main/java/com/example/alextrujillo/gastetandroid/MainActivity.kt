@@ -1,28 +1,17 @@
 package com.example.alextrujillo.gastetandroid
 
-import android.Manifest
-import android.app.Activity
-import android.content.Context
-import android.content.Intent
-import android.graphics.Color
-import android.opengl.Visibility
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.FragmentManager
 import androidx.navigation.*
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.main_activity.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener,NavController.OnDestinationChangedListener{
@@ -46,16 +35,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,NavController.OnD
 
 
     override fun onDestinationChanged(controller: NavController, destination: NavDestination, arguments: Bundle?) {
-        Toast.makeText(this,"This is a listener",Toast.LENGTH_SHORT).show()
+
         when (destination.id) {
             R.id.homeFragment -> {
-
+                maintoolbarTitle.setText("GASTET")
             }
             R.id.postFragment -> {
-
+                maintoolbarTitle.setText("Anuncio")
             }
             R.id.profileFragment -> {
-
+                maintoolbarTitle.setText("Perfil")
             }
         }
     }
