@@ -1,4 +1,4 @@
-package com.example.alextrujillo.gastetandroid.ui.ui
+package com.example.alextrujillo.gastetandroid.ui.login
 
 
 import android.os.Bundle
@@ -13,9 +13,7 @@ import com.google.android.material.button.MaterialButton
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.main_activity.*
-import androidx.navigation.*
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

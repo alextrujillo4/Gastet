@@ -6,4 +6,16 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="gastet">GASTET</string>
+    <string name="perdido">Perdido</string>
+    <string name="encontrado">Encontrado</string>
+    <string name="adopci_n">Adopción</string>
+    <string name="perro">Perro</string>
+    <string name="gato">Gato</string>
+    <string name="otro">Otro</string>
+    <string name="no">No</string>
+    <string name="si">Si</string>
+    <string name="macho">Macho</string>
+    <string name="hembra">Hembra</string>
+    <string name="claro">¡Claro!</string>
+    <string name="no_lo_creo">No lo creo</string>
 </resources>

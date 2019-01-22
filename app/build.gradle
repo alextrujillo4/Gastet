@@ -51,8 +51,12 @@ dependencies {
 
     //UI
     implementation 'com.github.savvyapps:ToggleButtonLayout:1.2.0'
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    kapt 'com.github.bumptech.glide:compiler:4.8.0'
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
 
 
 }
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'kotlin-kapt'
 

@@ -5,7 +5,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            tools:context=".ui.ui.PostFragment">
+            tools:context=".ui.main.PostFragment">
 
     <LinearLayout
             android:layout_width="match_parent"
@@ -29,8 +29,9 @@
 
                 <ImageView
                         android:id="@+id/postImageIV"
-                        android:layout_width="80dp"
-                           android:layout_height="80dp"
+                        android:layout_width="120dp"
+                           android:layout_height="120dp"
+                        android:layout_marginBottom="8dp"
                            android:src="@drawable/round_image_24"/>
 
                 <com.google.android.material.button.MaterialButton
@@ -68,17 +69,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:icon="@drawable/icon_perdido"
-                    android:text="Perdido"/>
+                    android:text="@string/perdido"/>
             <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:icon="@drawable/icon_encontrado"
-                    android:text="Encontrado"/>
+                    android:text="@string/encontrado"/>
             <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:icon="@drawable/icon_adopcion"
-                    android:text="Adopción"/>
+                    android:text="@string/adopci_n"/>
         </com.google.android.material.tabs.TabLayout>
 
 ¡
@@ -90,6 +91,7 @@
                   android:layout_marginRight="16dp"
                   android:layout_marginTop="16dp"
                   android:textSize="24dp"/>
+
         <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -111,6 +113,15 @@
                     android:textColor="@color/grayColor" />
         </com.google.android.material.textfield.TextInputLayout>
 
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Tipo de mascota"
+                  android:fontFamily="@font/ubuntu_bold"
+                  android:layout_marginLeft="16dp"
+                  android:layout_marginRight="16dp"
+                  android:layout_marginTop="16dp"
+                  android:textSize="24dp"/>
 
         <com.google.android.material.tabs.TabLayout
                 android:id="@+id/postPetypeTabLayout"
@@ -134,21 +145,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:icon="@drawable/icon_perro"
-                    android:text="Perro"/>
+                    android:text="@string/perro"/>
             <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:icon="@drawable/icon_gato"
-                    android:text="Gato"/>
+                    android:text="@string/gato"/>
             <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:icon="@drawable/icon_otro"
-                    android:text="Otro"/>
+                    android:text="@string/otro"/>
         </com.google.android.material.tabs.TabLayout>
 
 
-        <TextView android:layout_width="wrap_content"
+        <TextView
+                android:id="@+id/postDasRecompTV"
+                android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:layout_marginLeft="16dp"
                   android:layout_marginRight="16dp"
@@ -179,13 +192,15 @@
             <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="No"/>
+                    android:text="@string/si"
+                    />
             <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Si"/>
+                    android:text="@string/no"/>
         </com.google.android.material.tabs.TabLayout>
         <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/postCostoTIL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
@@ -208,6 +223,7 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/postNombreTIL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
@@ -228,6 +244,18 @@
                     android:singleLine="true"
                     android:textColor="@color/grayColor" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+                android:id="@+id/postSexTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/ubuntu_bold"
+                android:text="Sexo"
+                android:textSize="24dp"/>
+
 
         <com.google.android.material.tabs.TabLayout
                 android:id="@+id/postGenderTabLayout"
@@ -252,15 +280,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:icon="@drawable/icon_male"
-                    android:text="Macho"/>
+                    android:text="@string/macho"/>
             <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:icon="@drawable/icon_female"
-                    android:text="Hembra"/>
+                    android:text="@string/hembra"/>
         </com.google.android.material.tabs.TabLayout>
 
-        <TextView android:layout_width="wrap_content"
+        <TextView
+                android:id="@+id/postVacunadoTV"
+                android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:fontFamily="@font/ubuntu_bold"
                   android:layout_marginLeft="16dp"
@@ -292,12 +322,15 @@
             <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Si"/>
+                    android:text="@string/claro"
+            />
             <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="No"/>
+                    android:text="@string/no_lo_creo"/>
         </com.google.android.material.tabs.TabLayout>
+
+
 
         <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -367,7 +400,7 @@
                 android:textColor="@color/whiteColor"
                 android:padding="16dp"
                 android:layout_margin="16dp"
-                android:fontFamily="@font/ubuntu"
+                android:fontFamily="@font/ubuntu_medium"
                 app:backgroundTint="@color/secondaryColor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

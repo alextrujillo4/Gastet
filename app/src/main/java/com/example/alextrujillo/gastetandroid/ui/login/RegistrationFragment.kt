@@ -1,26 +1,15 @@
-package com.example.alextrujillo.gastetandroid.ui.ui
+package com.example.alextrujillo.gastetandroid.ui.login
 
 
-import android.content.Context
-import android.content.Intent
-import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
-import android.os.Parcel
-import android.os.Parcelable
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.Navigation.findNavController
-import androidx.navigation.findNavController
-import com.example.alextrujillo.gastetandroid.MainActivity
 import com.example.alextrujillo.gastetandroid.R
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.Task
 import com.google.android.material.button.MaterialButton
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_registration.*
 
@@ -87,7 +76,7 @@ class RegistrationFragment() : androidx.fragment.app.Fragment(), View.OnClickLis
                 }
             }
             R.id.loginButton -> {
-                findNavController(this?.activity!!,R.id.my_nav_host_fragment).popBackStack()
+                findNavController(this.activity!!,R.id.my_nav_host_fragment).popBackStack()
 
             }
         }
