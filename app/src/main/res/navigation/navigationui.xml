@@ -9,7 +9,7 @@
     <fragment android:id="@+id/postFragment"
               android:name="com.example.alextrujillo.gastetandroid.ui.main.PostFragment"
               android:label="fragment_post"
-              tools:layout="@layout/fragment_post">
+              tools:layout="@layout/fragment_post_item">
     </fragment>
 
     <fragment android:id="@+id/profileFragment"

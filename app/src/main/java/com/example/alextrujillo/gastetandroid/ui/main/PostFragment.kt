@@ -23,7 +23,6 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.tabs.TabLayout
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
-import kotlinx.android.synthetic.main.fragment_post.*
 
 
 class PostFragment : androidx.fragment.app.Fragment() , View.OnClickListener, TabLayout.OnTabSelectedListener{
@@ -35,7 +34,7 @@ class PostFragment : androidx.fragment.app.Fragment() , View.OnClickListener, Ta
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val v : View =  inflater.inflate(R.layout.fragment_post, container, false)
+        val v : View =  inflater.inflate(R.layout.fragment_post_item, container, false)
         Log.w("PostFragment: ","Entrando...")
 
         val postAgregarImagenBtn = v.findViewById<MaterialButton>(R.id.postAgregarImagenBtn)
