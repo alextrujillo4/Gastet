@@ -1,9 +1,11 @@
 package com.example.alextrujillo.gastetandroid.ui.main
 
 
+import android.graphics.Matrix
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment.findNavController
@@ -31,6 +33,13 @@ class ProfileFragment : androidx.fragment.app.Fragment() {
         val v : View =  inflater.inflate(R.layout.fragment_profile, container, false)
         Log.w("ProfileFragment: ","Entrando...")
         setHasOptionsMenu(true)
+        val  imageView  = v.findViewById<ImageView>(R.id.profileProfileImageIV)
+        val matrix : Matrix = imageView.getImageMatrix()
+        val imageWidth: Float = imageView.getDrawable().getIntrinsicWidth().toFloat()
+        val screenWidth : Int = getResources().getDisplayMetrics().widthPixels
+        val scaleRatio : Float = screenWidth / imageWidth
+        matrix.postScale(scaleRatio, scaleRatio);
+        imageView.setImageMatrix(matrix);
 
         return v
     }
@@ -41,7 +50,6 @@ class ProfileFragment : androidx.fragment.app.Fragment() {
         inflater.inflate(R.menu.porfile_menu, menu)
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
         val id = item.itemId
         if (id == R.id.cerrarSesion) {
             Toast.makeText(context, "cerrarSesion", Toast.LENGTH_SHORT).show()
@@ -54,6 +62,8 @@ class ProfileFragment : androidx.fragment.app.Fragment() {
             findNavController(this).navigate(R.id.loginFragment,null, NavOptions.Builder()
                 .setPopUpTo(R.id.profileFragment, true)
                 .build())
+        }else if(id == R.id.editUser){
+            Toast.makeText(context, "Editar Usuario", Toast.LENGTH_SHORT).show()
         }
         return super.onOptionsItemSelected(item)
     }

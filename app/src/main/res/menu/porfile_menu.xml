@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
+    <item android:id="@+id/editUser"
+          android:state_selected="true"
+          app:showAsAction="always"
+          android:icon="@drawable/round_edit_24"
+          android:title="Editar" />
+
     <item android:id="@+id/cerrarSesion"
           android:state_selected="true"
           app:showAsAction="always"
           android:icon="@drawable/round_exit_to_app_24"
           android:title="Cerrar Sesión" />
+
 
 </menu>

@@ -42,20 +42,20 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,NavController.OnD
         when (destination.id) {
             R.id.homeFragment -> {
                 maintoolbarTitle.setText("GASTET")
-                mainToolbar.setOverflowIcon(ContextCompat.getDrawable(this,
+               /* mainToolbar.setOverflowIcon(ContextCompat.getDrawable(this,
                     R.drawable.round_location_on_24
-                ));
+                ));*/
             }
             R.id.postFragment -> {
                 maintoolbarTitle.setText("Anuncio")
-                mainToolbar.setOverflowIcon(null);
+                //mainToolbar.setOverflowIcon(null);
                 // mainToolbar.setOverflowIcon(ContextCompat.getDrawable(this, R.drawable.round_image_24));
             }
             R.id.profileFragment -> {
                 maintoolbarTitle.setText("Perfil")
-                mainToolbar.setOverflowIcon(ContextCompat.getDrawable(this,
+                /*mainToolbar.setOverflowIcon(ContextCompat.getDrawable(this,
                     R.drawable.round_exit_to_app_24
-                ));
+                ));*/
             }
         }
     }

@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <style name="AppThemeCustom" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Original AppCompat attributes. -->
@@ -36,6 +36,7 @@
         <item name="android:statusBarColor">@color/colorPrimary</item>
         <item name="android:textColorPrimaryInverse">@android:color/primary_text_dark</item>
     </style>
+
 
     <style name="BottomNavigationTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/secondaryColor</item>
