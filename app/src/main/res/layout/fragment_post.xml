@@ -10,328 +10,692 @@
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="8dp"
             android:orientation="vertical">
 
 
         <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 card_view:cardUseCompatPadding="true"
-                card_view:cardElevation="9dp"
-                android:layout_marginBottom="8dp"
+                card_view:cardElevation="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="24dp"
+                app:cardBackgroundColor="#FAFAFA"
+                app:cardCornerRadius="16dp"
                 android:layout_height="wrap_content">
 
+            <ImageButton
+                    android:layout_width="match_parent"
+                    android:id="@+id/postEscojeImagenBtn"
+                    android:background="@drawable/placeholder"
+                    android:scaleType="centerCrop"
+                         android:layout_height="240dp"
+            />
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                card_view:cardElevation="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="16dp"
+                android:layout_height="wrap_content">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+                <LinearLayout android:layout_width="wrap_content"
+                              android:orientation="vertical"
+                              android:gravity="center"
+                              android:layout_height="wrap_content"
+                              android:id="@+id/postLineatPerdido"
+                              android:padding="8dp"
+                              app:layout_constraintEnd_toStartOf="@+id/postLinearEncontrado"
+                              app:layout_constraintStart_toStartOf="parent"
+                              app:layout_constraintHorizontal_bias="0.5" android:layout_marginTop="8dp"
+                              app:layout_constraintTop_toTopOf="parent">
+                    <com.google.android.material.button.MaterialButton
+                            android:id="@+id/postPerdidoBtn"
+                            android:layout_width="80dp"
+                            android:layout_height="64dp"
+                            app:cornerRadius="32dp"
+                            style="@style/Widget.MaterialComponents.Button.TextButton.Dialog.Icon"
+                            app:icon="@drawable/icon_lost_active"
+                            app:iconSize="64dp"
+                            app:iconTint="@null"/>
+                    <TextView android:layout_width="wrap_content"
+                              android:textColor="@color/colorAccent"
+                              android:textSize="16dp"
+                              android:fontFamily="@font/montserrat"
+                              android:paddingBottom="8dp"
+                              android:layout_height="wrap_content"
+                              android:text="Perdido"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="wrap_content"
+                              android:orientation="vertical"
+                              android:gravity="center"
+                              android:paddingTop="8dp"
+                              android:paddingBottom="8dp"
+                              android:layout_height="wrap_content"
+                              app:layout_constraintEnd_toStartOf="@+id/postLinearAdopcion"
+                              android:id="@+id/postLinearEncontrado"
+                              app:layout_constraintStart_toEndOf="@+id/postLineatPerdido"
+                              app:layout_constraintHorizontal_bias="0.5" android:layout_marginTop="8dp"
+                              app:layout_constraintTop_toTopOf="parent">
+                    <com.google.android.material.button.MaterialButton
+                            android:id="@+id/postEncontradoBtn"
+                            android:layout_width="80dp"
+                            android:layout_height="64dp"
+                            app:cornerRadius="32dp"
+                            style="@style/Widget.MaterialComponents.Button.TextButton.Dialog.Icon"
+                            app:icon="@drawable/icon_found_inactive"
+                            app:iconSize="64dp"
+                            app:iconTint="@null"/>
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:textColor="@color/colorAccent"
+                              android:textSize="16dp"
+                              android:paddingBottom="8dp"
+                              android:fontFamily="@font/montserrat"
+                              android:text="Encontrado"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="wrap_content"
+                              android:orientation="vertical"
+                              android:gravity="center"
+                              android:padding="8dp"
+                              android:layout_height="wrap_content"
+                              app:layout_constraintEnd_toEndOf="parent"
+                              android:id="@+id/postLinearAdopcion"
+                              app:layout_constraintStart_toEndOf="@+id/postLinearEncontrado"
+                              app:layout_constraintHorizontal_bias="0.5" android:layout_marginTop="8dp"
+                              app:layout_constraintTop_toTopOf="parent">
+                    <com.google.android.material.button.MaterialButton
+                            android:layout_width="80dp"
+                            android:layout_height="64dp"
+                            android:id="@+id/postAdopcionBtn"
+                            app:cornerRadius="32dp"
+                            style="@style/Widget.MaterialComponents.Button.TextButton.Dialog.Icon"
+                            app:icon="@drawable/icon_adoption_inactive"
+                            app:iconSize="64dp"
+                            app:iconTint="@null"/>
+
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:textColor="@color/colorAccent"
+                              android:textSize="16dp"
+                              android:paddingBottom="8dp"
+                              android:fontFamily="@font/montserrat"
+                              android:text="Adopción"/>
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+
+
             <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:gravity="center"
-                          android:padding="48dp"
+                          android:layout_marginStart="16dp"
+                          android:layout_marginEnd="16dp"
+                          android:layout_marginTop="16dp"
+                          android:layout_height="match_parent"
                           android:orientation="vertical">
 
-                <ImageView
-                        android:id="@+id/postImageIV"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:layout_marginBottom="8dp"
-                        android:src="@drawable/round_image_24"/>
 
-                <com.google.android.material.button.MaterialButton
-                        android:id="@+id/postAgregarImagenBtn"
-                        android:layout_width="wrap_content"
-                        android:textColor="@color/secondaryColor"
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:id="@+id/postPostQuestionTV"
+                          android:text="¿Dónde se te perdió?"
+                          android:fontFamily="@font/ubuntu_bold"
+                          android:layout_marginLeft="16dp"
+                          android:layout_marginRight="16dp"
+                          android:layout_marginTop="24dp"
+                          android:textSize="24dp"/>
+
+
+
+
+                <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        card_view:cardElevation="8dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginTop="16dp"
+                        app:cardCornerRadius="16dp"
+                        android:layout_height="wrap_content">
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/main_gradient">
+
+
+                    <com.google.android.material.button.MaterialButton
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Compartir Ubicación"
+                            style="@style/Widget.MaterialComponents.Button.TextButton.Dialog"
+                            app:cornerRadius="16dp"
+                            android:padding="16dp"
+                            android:textColor="@color/whiteColor"
+                            android:fontFamily="@font/montserrat"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+
+            </LinearLayout>
+
+
+
+
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Información Adicional"
+                  android:fontFamily="@font/ubuntu_bold"
+                  android:layout_marginEnd="16dp"
+                  android:layout_marginStart="32dp"
+                  android:layout_marginTop="32dp"
+                  android:textSize="24dp"/>
+
+
+
+        <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                card_view:cardElevation="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="16dp"
+                android:layout_height="wrap_content">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+                <LinearLayout android:layout_width="wrap_content"
+                              android:orientation="vertical"
+                              android:gravity="center"
+                              android:layout_height="wrap_content"
+                              android:id="@+id/postLineatPerro"
+                              android:padding="8dp"
+                              app:layout_constraintEnd_toStartOf="@+id/postLinearGato"
+                              app:layout_constraintStart_toStartOf="parent"
+                              app:layout_constraintHorizontal_bias="0.5" android:layout_marginTop="8dp"
+                              app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.button.MaterialButton
+                            android:layout_width="80dp"
+                            android:layout_height="64dp"
+                            android:id="@+id/postPerroBtn"
+                            android:layout_gravity="center"
+                            app:cornerRadius="32dp"
+                            android:gravity="center"
+                            style="@style/Widget.MaterialComponents.Button.TextButton.Dialog.Icon"
+                            app:icon="@drawable/icon_dog_active"
+                            app:iconSize="64dp"
+                            app:iconTint="@null"/>
+                    <TextView android:layout_width="wrap_content"
+                              android:textColor="@color/colorAccent"
+                              android:textSize="16dp"
+                              android:fontFamily="@font/montserrat"
+                              android:paddingBottom="8dp"
+                              android:layout_height="wrap_content"
+                              android:text="Perro"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="wrap_content"
+                              android:orientation="vertical"
+                              android:gravity="center"
+                              android:paddingTop="8dp"
+                              android:paddingBottom="8dp"
+                              android:layout_height="wrap_content"
+                              app:layout_constraintEnd_toStartOf="@+id/postLinearOtro"
+                              android:id="@+id/postLinearGato"
+                              app:layout_constraintStart_toEndOf="@+id/postLineatPerro"
+                              app:layout_constraintHorizontal_bias="0.5" android:layout_marginTop="8dp"
+                              app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.button.MaterialButton
+                            android:layout_width="80dp"
+                            android:layout_height="64dp"
+                            android:id="@+id/postGatoBtn"
+                            android:layout_gravity="center"
+                            app:cornerRadius="32dp"
+                            android:gravity="center"
+                            style="@style/Widget.MaterialComponents.Button.TextButton.Dialog.Icon"
+                            app:icon="@drawable/icon_cat_inactive"
+                            app:iconSize="64dp"
+                            app:iconTint="@null"/>
+
+
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:textColor="@color/colorAccent"
+                              android:textSize="16dp"
+                              android:paddingBottom="8dp"
+                              android:fontFamily="@font/montserrat"
+                              android:text="Gato"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="wrap_content"
+                              android:orientation="vertical"
+                              android:gravity="center"
+                              android:padding="8dp"
+                              android:layout_height="wrap_content"
+                              app:layout_constraintEnd_toEndOf="parent"
+                              android:id="@+id/postLinearOtro"
+                              app:layout_constraintStart_toEndOf="@+id/postLinearGato"
+                              app:layout_constraintHorizontal_bias="0.5" android:layout_marginTop="8dp"
+                              app:layout_constraintTop_toTopOf="parent">
+                    <com.google.android.material.button.MaterialButton
+                            android:layout_width="80dp"
+                            android:layout_height="64dp"
+                            android:id="@+id/postOtroPetBtn"
+                            android:layout_gravity="center"
+                            app:cornerRadius="32dp"
+                            android:gravity="center"
+                            style="@style/Widget.MaterialComponents.Button.TextButton.Dialog.Icon"
+                            app:icon="@drawable/icon_otherpet_inactive"
+                            app:iconSize="64dp"
+                            app:iconTint="@null"/>
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:textColor="@color/colorAccent"
+                              android:textSize="16dp"
+                              android:paddingBottom="8dp"
+                              android:fontFamily="@font/montserrat"
+                              android:text="Otro"/>
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+        <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                card_view:cardElevation="8dp"
+                android:id="@+id/postRecompensaCARD"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="16dp"
+                android:layout_height="wrap_content">
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="vertical">
+                <TextView
+                        android:id="@+id/postDasRecompTV"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:iconTint="@color/secondaryColor"
-                        android:fontFamily="@font/ubuntu"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
-                        android:text="Escoje una Imagen" app:strokeColor="@color/secondaryColor"/>
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/montserrat"
+                        android:textColor="@color/secondaryColor"
+                        android:text="¿Das recompensa?"
+                        android:textSize="16dp"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+
+                    <LinearLayout android:layout_width="wrap_content"
+                                  android:orientation="vertical"
+                                  android:gravity="center"
+                                  android:layout_height="wrap_content"
+                                  android:id="@+id/postRecompensaSi"
+                                  android:padding="8dp"
+                                  app:layout_constraintEnd_toStartOf="@+id/postRecompensaNo"
+                                  android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
+                                  app:layout_constraintHorizontal_bias="0.5" android:layout_marginTop="8dp"
+                                  app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+                                  app:layout_constraintBottom_toBottomOf="parent">
+
+                        <com.google.android.material.button.MaterialButton
+                                android:layout_width="80dp"
+                                android:layout_height="64dp"
+                                android:id="@+id/postReSiBtn"
+                                android:layout_gravity="center"
+                                app:cornerRadius="32dp"
+                                android:gravity="center"
+                                style="@style/Widget.MaterialComponents.Button.TextButton.Dialog.Icon"
+                                app:icon="@drawable/checkmark_active"
+                                app:iconSize="64dp"
+                                app:iconTint="@null"/>
+
+                                android:src="@drawable/checkmark_inactive"/>
+                        <TextView android:layout_width="wrap_content"
+                                  android:textColor="@color/colorAccent"
+                                  android:textSize="16dp"
+                                  android:fontFamily="@font/montserrat"
+                                  android:paddingBottom="8dp"
+                                  android:layout_height="wrap_content"
+                                  android:text="Si"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="wrap_content"
+                                  android:orientation="vertical"
+                                  android:gravity="center"
+                                  android:layout_height="wrap_content"
+                                  android:id="@+id/postRecompensaNo"
+                                  android:padding="8dp"
+                                  android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+                                  app:layout_constraintStart_toEndOf="@+id/postRecompensaSi"
+                                  app:layout_constraintHorizontal_bias="0.5"
+                                  android:layout_marginTop="8dp"
+                                  app:layout_constraintTop_toTopOf="parent"
+                                  android:layout_marginBottom="8dp"
+                                  app:layout_constraintBottom_toBottomOf="parent">
+
+                        <com.google.android.material.button.MaterialButton
+                                android:layout_width="80dp"
+                                android:layout_height="64dp"
+                                android:id="@+id/postReNoBtn"
+                                android:layout_gravity="center"
+                                app:cornerRadius="32dp"
+                                android:gravity="center"
+                                style="@style/Widget.MaterialComponents.Button.TextButton.Dialog.Icon"
+                                app:icon="@drawable/cross_inactive"
+                                app:iconSize="64dp"
+                                app:iconTint="@null"/>
+                        <TextView android:layout_width="wrap_content"
+                                  android:textColor="@color/colorAccent"
+                                  android:textSize="16dp"
+                                  android:fontFamily="@font/montserrat"
+                                  android:paddingBottom="8dp"
+                                  android:layout_height="wrap_content"
+                                  android:text="No"/>
+                    </LinearLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
 
-        <com.google.android.material.tabs.TabLayout
-                android:id="@+id/postPostTypeTabLayout"
+
+
+
+        <com.google.android.material.card.MaterialCardView
+                android:id="@+id/postCostoCARD"
+
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                app:tabIndicatorColor="@color/secondaryColor"
-                app:tabTextColor="@color/whiteColor"
-                app:tabSelectedTextColor="@color/whiteColor"
-                app:tabIconTint="@color/whiteColor"
-                android:background="@drawable/tablayout_background"
-                app:tabMode="fixed"
-                app:tabBackground="@drawable/tablayout_selector"
-                app:tabPaddingStart="16dp"
-                app:tabPaddingEnd="16dp"
-                app:tabIndicatorHeight="0dp"
-                app:tabRippleColor="@null"
-                app:tabTextAppearance="@style/TabTextAppearance">
-
-            <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:icon="@drawable/icon_perdido"
-                    android:text="@string/perdido"/>
-            <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:icon="@drawable/icon_encontrado"
-                    android:text="@string/encontrado"/>
-            <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:icon="@drawable/icon_adopcion"
-                    android:text="@string/adopci_n"/>
-        </com.google.android.material.tabs.TabLayout>
-
-        ¡
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="¿Dónde se te perdió?"
-                  android:fontFamily="@font/ubuntu_bold"
-                  android:layout_marginLeft="16dp"
-                  android:layout_marginRight="16dp"
-                  android:layout_marginTop="16dp"
-                  android:textSize="24dp"/>
-
-        <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:backgroundTint="@color/grayColor"
-                android:textColorHint="@color/grayColor"
-                app:boxStrokeColor="@color/secondaryColor"
-                app:hintTextColor="@color/secondaryColor"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_marginBottom="8dp">
-            <EditText
-                    android:id="@+id/postDescripcionET"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:singleLine="false"
-                    android:fontFamily="@font/ubuntu"
-                    android:hint="Descripción"
-                    android:inputType="textMultiLine"
-                    android:textColor="@color/grayColor" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="Tipo de mascota"
-                  android:fontFamily="@font/ubuntu_bold"
-                  android:layout_marginLeft="16dp"
-                  android:layout_marginRight="16dp"
-                  android:layout_marginTop="16dp"
-                  android:textSize="24dp"/>
-
-        <com.google.android.material.tabs.TabLayout
-                android:id="@+id/postPetypeTabLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                app:tabIndicatorColor="@color/secondaryColor"
-                app:tabTextColor="@color/whiteColor"
-                app:tabSelectedTextColor="@color/whiteColor"
-                app:tabIconTint="@color/whiteColor"
-                android:background="@drawable/tablayout_background"
-                app:tabMode="fixed"
-                app:tabBackground="@drawable/tablayout_selector"
-                app:tabPaddingStart="16dp"
-                app:tabPaddingEnd="16dp"
-                app:tabIndicatorHeight="0dp"
-                app:tabRippleColor="@null"
-                app:tabTextAppearance="@style/TabTextAppearance">
-
-            <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:icon="@drawable/icon_perro"
-                    android:text="@string/perro"/>
-            <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:icon="@drawable/icon_gato"
-                    android:text="@string/gato"/>
-            <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:icon="@drawable/icon_otro"
-                    android:text="@string/otro"/>
-        </com.google.android.material.tabs.TabLayout>
-
-
-        <TextView
-                android:id="@+id/postDasRecompTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                card_view:cardElevation="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:layout_marginTop="16dp"
-                android:fontFamily="@font/ubuntu_bold"
-                android:text="¿Das recompensa?"
-                android:textSize="24dp"/>
-
-
-        <com.google.android.material.tabs.TabLayout
-                android:id="@+id/postRecompensaTabLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                app:tabIndicatorColor="@color/secondaryColor"
-                app:tabTextColor="@color/whiteColor"
-                app:tabSelectedTextColor="@color/whiteColor"
-                app:tabIconTint="@color/whiteColor"
-                android:background="@drawable/tablayout_background"
-                app:tabMode="fixed"
-                app:tabBackground="@drawable/tablayout_selector"
-                app:tabPaddingStart="16dp"
-                app:tabPaddingEnd="16dp"
-                app:tabIndicatorHeight="0dp"
-                app:tabRippleColor="@null"
-                app:tabTextAppearance="@style/TabTextAppearance">
-
-            <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/si"
-            />
-            <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/no"/>
-        </com.google.android.material.tabs.TabLayout>
-        <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/postCostoTIL"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:backgroundTint="@color/grayColor"
-                android:textColorHint="@color/grayColor"
-                app:boxStrokeColor="@color/secondaryColor"
-                app:hintTextColor="@color/secondaryColor"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_marginBottom="8dp">
-            <EditText
-                    android:id="@+id/postCostoET"
+                app:cardCornerRadius="16dp"
+                android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="¿Cuánto es?"
+                    android:layout_margin="16dp"
+                    android:backgroundTint="@color/grayColor"
+                    android:textColorHint="@color/grayColor"
+                    app:hintTextColor="@color/secondaryColor"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_marginBottom="8dp">
+                <!--app:boxStrokeColor="@color/secondaryColor"-->
+                <EditText
+                        android:id="@+id/postCostoET"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="¿Cuánto es la recompensa? (MX)"
+                        android:fontFamily="@font/ubuntu"
+                        android:inputType="number"
+                        android:singleLine="true"
+                        android:textColor="@color/grayColor" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+
+
+
+        <com.google.android.material.card.MaterialCardView
+                android:id="@+id/postNombreCARD"
+                android:layout_width="match_parent"
+                card_view:cardElevation="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="16dp"
+                android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:backgroundTint="@color/grayColor"
+                    android:textColorHint="@color/grayColor"
+                    app:hintTextColor="@color/secondaryColor"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_marginBottom="8dp">
+            <EditText
+                    android:id="@+id/postNombreET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nombre"
                     android:fontFamily="@font/ubuntu"
                     android:inputType="number"
                     android:singleLine="true"
                     android:textColor="@color/grayColor" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        </com.google.android.material.card.MaterialCardView>
 
-        <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/postNombreTIL"
+
+
+
+        <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:backgroundTint="@color/grayColor"
-                android:textColorHint="@color/grayColor"
-                app:boxStrokeColor="@color/secondaryColor"
-                app:hintTextColor="@color/secondaryColor"
-
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_marginBottom="8dp">
-            <EditText
-                    android:id="@+id/postNombreET"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/ubuntu"
-                    android:hint="Nombre"
-                    android:inputType="textPersonName"
-                    android:singleLine="true"
-                    android:textColor="@color/grayColor" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <TextView
-                android:id="@+id/postSexTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                card_view:cardElevation="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:layout_marginTop="16dp"
-                android:fontFamily="@font/ubuntu_bold"
-                android:text="Sexo"
-                android:textSize="24dp"/>
+                app:cardCornerRadius="16dp"
+                android:layout_height="wrap_content">
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="vertical">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
 
 
-        <com.google.android.material.tabs.TabLayout
-                android:id="@+id/postGenderTabLayout"
+                    <LinearLayout android:layout_width="wrap_content"
+                                  android:orientation="vertical"
+                                  android:gravity="center"
+                                  android:layout_height="wrap_content"
+                                  android:id="@+id/postLinearMacho"
+                                  android:padding="8dp"
+                                  app:layout_constraintEnd_toStartOf="@+id/postLinearHembra"
+                                  android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
+                                  app:layout_constraintHorizontal_bias="0.5" android:layout_marginTop="8dp"
+                                  app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+                                  app:layout_constraintBottom_toBottomOf="parent">
+
+                        <com.google.android.material.button.MaterialButton
+                                android:layout_width="80dp"
+                                android:layout_height="64dp"
+                                android:id="@+id/postMachoBtn"
+                                android:layout_gravity="center"
+                                app:cornerRadius="32dp"
+                                android:gravity="center"
+                                style="@style/Widget.MaterialComponents.Button.TextButton.Dialog.Icon"
+                                app:icon="@drawable/icon_male_active"
+                                app:iconSize="64dp"
+                                app:iconTint="@null"/>
+
+                        <TextView android:layout_width="wrap_content"
+                                  android:textColor="@color/colorAccent"
+                                  android:textSize="16dp"
+                                  android:fontFamily="@font/montserrat"
+                                  android:paddingBottom="8dp"
+                                  android:layout_height="wrap_content"
+                                  android:text="Macho"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="wrap_content"
+                                  android:orientation="vertical"
+                                  android:gravity="center"
+                                  android:layout_height="wrap_content"
+                                  android:id="@+id/postLinearHembra"
+                                  android:padding="8dp"
+                                  android:layout_marginEnd="8dp"
+                                  app:layout_constraintEnd_toEndOf="parent"
+                                  app:layout_constraintStart_toEndOf="@+id/postLinearMacho"
+                                  app:layout_constraintHorizontal_bias="0.5"
+                                  android:layout_marginTop="8dp"
+                                  app:layout_constraintTop_toTopOf="parent"
+                                  android:layout_marginBottom="8dp"
+                                  app:layout_constraintBottom_toBottomOf="parent">
+
+                        <com.google.android.material.button.MaterialButton
+                                android:layout_width="80dp"
+                                android:layout_height="64dp"
+                                android:id="@+id/postHembraBtn"
+                                android:layout_gravity="center"
+                                app:cornerRadius="32dp"
+                                android:gravity="center"
+                                style="@style/Widget.MaterialComponents.Button.TextButton.Dialog.Icon"
+                                app:icon="@drawable/icon_female_inactive"
+                                app:iconSize="64dp"
+                                app:iconTint="@null"/>
+
+                        <TextView android:layout_width="wrap_content"
+                                  android:textColor="@color/colorAccent"
+                                  android:textSize="16dp"
+                                  android:fontFamily="@font/montserrat"
+                                  android:paddingBottom="8dp"
+                                  android:layout_height="wrap_content"
+                                  android:text="Hembra"/>
+                    </LinearLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+
+
+        <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:fontFamily="@font/ubuntu"
-                app:tabIndicatorColor="@color/secondaryColor"
-                app:tabTextColor="@color/whiteColor"
-                app:tabSelectedTextColor="@color/whiteColor"
-                app:tabIconTint="@color/whiteColor"
-                android:background="@drawable/tablayout_background"
-                app:tabMode="fixed"
-                app:tabBackground="@drawable/tablayout_selector"
-                app:tabPaddingStart="16dp"
-                app:tabPaddingEnd="16dp"
-                app:tabIndicatorHeight="0dp"
-                app:tabRippleColor="@null"
-                app:tabTextAppearance="@style/TabTextAppearance">
-
-            <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:icon="@drawable/icon_male"
-                    android:text="@string/macho"/>
-            <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:icon="@drawable/icon_female"
-                    android:text="@string/hembra"/>
-        </com.google.android.material.tabs.TabLayout>
-
-        <TextView
-                android:id="@+id/postVacunadoTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/ubuntu_bold"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                card_view:cardElevation="8dp"
+                android:id="@+id/postVacunadoCARD"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:layout_marginTop="16dp"
-                android:text="¿Vacunado y desparacitado?"
-                android:textSize="24dp"/>
+                app:cardCornerRadius="16dp"
+                android:layout_height="wrap_content">
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="vertical">
+                <TextView
+                        android:id="@+id/postVacunadoTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/montserrat"
+                        android:textColor="@color/secondaryColor"
+                        android:text="¿Está vacunado y desparacitado?"
+                        android:textSize="16dp"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
 
 
+                    <LinearLayout android:layout_width="wrap_content"
+                                  android:orientation="vertical"
+                                  android:gravity="center"
+                                  android:layout_height="wrap_content"
+                                  android:id="@+id/postVacunadoSi"
+                                  android:padding="8dp"
+                                  app:layout_constraintEnd_toStartOf="@+id/postVacunadoNo"
+                                  android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
+                                  app:layout_constraintHorizontal_bias="0.5" android:layout_marginTop="8dp"
+                                  app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+                                  app:layout_constraintBottom_toBottomOf="parent">
 
-        <com.google.android.material.tabs.TabLayout
-                android:id="@+id/postVacunadoTabLayout"
+
+                        <com.google.android.material.button.MaterialButton
+                                android:layout_width="80dp"
+                                android:layout_height="64dp"
+                                android:id="@+id/postVDSiBtn"
+                                android:layout_gravity="center"
+                                app:cornerRadius="32dp"
+                                android:gravity="center"
+                                style="@style/Widget.MaterialComponents.Button.TextButton.Dialog.Icon"
+                                app:icon="@drawable/checkmark_active"
+                                app:iconSize="64dp"
+                                app:iconTint="@null"/>
+
+                        <TextView android:layout_width="wrap_content"
+                                  android:textColor="@color/colorAccent"
+                                  android:textSize="16dp"
+                                  android:fontFamily="@font/montserrat"
+                                  android:paddingBottom="8dp"
+                                  android:layout_height="wrap_content"
+                                  android:text="Si"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="wrap_content"
+                                  android:orientation="vertical"
+                                  android:gravity="center"
+                                  android:layout_height="wrap_content"
+                                  android:id="@+id/postVacunadoNo"
+                                  android:padding="8dp"
+                                  android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+                                  app:layout_constraintStart_toEndOf="@+id/postVacunadoSi"
+                                  app:layout_constraintHorizontal_bias="0.5"
+                                  android:layout_marginTop="8dp"
+                                  app:layout_constraintTop_toTopOf="parent"
+                                  android:layout_marginBottom="8dp"
+                                  app:layout_constraintBottom_toBottomOf="parent">
+
+                        <com.google.android.material.button.MaterialButton
+                                android:layout_width="80dp"
+                                android:layout_height="64dp"
+                                android:id="@+id/postVDNoBtn"
+                                android:layout_gravity="center"
+                                app:cornerRadius="32dp"
+                                android:gravity="center"
+                                style="@style/Widget.MaterialComponents.Button.TextButton.Dialog.Icon"
+                                app:icon="@drawable/cross_inactive"
+                                app:iconSize="64dp"
+                                app:iconTint="@null"/>
+                        <TextView android:layout_width="wrap_content"
+                                  android:textColor="@color/colorAccent"
+                                  android:textSize="16dp"
+                                  android:fontFamily="@font/montserrat"
+                                  android:paddingBottom="8dp"
+                                  android:layout_height="wrap_content"
+                                  android:text="No"/>
+                    </LinearLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                app:tabIndicatorColor="@color/secondaryColor"
-                app:tabTextColor="@color/whiteColor"
-                app:tabSelectedTextColor="@color/whiteColor"
-                app:tabIconTint="@color/whiteColor"
-                android:background="@drawable/tablayout_background"
-                app:tabMode="fixed"
-                app:tabBackground="@drawable/tablayout_selector"
-                app:tabPaddingStart="16dp"
-                app:tabPaddingEnd="16dp"
-                app:tabIndicatorHeight="0dp"
-                app:tabRippleColor="@null"
-                app:tabTextAppearance="@style/TabTextAppearance">
-
-            <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/claro"
-            />
-            <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/no_lo_creo"/>
-        </com.google.android.material.tabs.TabLayout>
-
-
-
+                card_view:cardElevation="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="16dp"
+                android:layout_height="wrap_content">
         <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -339,9 +703,8 @@
                 android:layout_margin="16dp"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_marginBottom="8dp"
-                android:backgroundTint="@color/grayColor"
+                android:backgroundTint="@color/whiteColor"
                 android:textColorHint="@color/grayColor"
-                app:boxStrokeColor="@color/secondaryColor"
                 app:hintTextColor="@color/secondaryColor">
             <EditText
                     android:id="@+id/postRazaET"
@@ -353,16 +716,24 @@
                     android:singleLine="true"
                     android:textColor="@color/grayColor" />
         </com.google.android.material.textfield.TextInputLayout>
+        </com.google.android.material.card.MaterialCardView>
 
+        <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                card_view:cardElevation="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="16dp"
+                android:layout_height="wrap_content">
         <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_marginBottom="8dp"
-                android:backgroundTint="@color/grayColor"
+                android:backgroundTint="@color/whiteColor"
                 android:textColorHint="@color/grayColor"
-                app:boxStrokeColor="@color/secondaryColor"
                 app:hintTextColor="@color/secondaryColor">
             <EditText
                     android:id="@+id/postPhoneET"
@@ -374,16 +745,24 @@
                     android:singleLine="true"
                     android:textColor="@color/grayColor" />
         </com.google.android.material.textfield.TextInputLayout>
+        </com.google.android.material.card.MaterialCardView>
 
+        <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                card_view:cardElevation="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="16dp"
+                android:layout_height="wrap_content">
         <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_marginBottom="8dp"
-                android:backgroundTint="@color/grayColor"
+                android:backgroundTint="@color/whiteColor"
                 android:textColorHint="@color/grayColor"
-                app:boxStrokeColor="@color/secondaryColor"
                 app:hintTextColor="@color/secondaryColor">
             <EditText
                     android:id="@+id/postComentariosET"
@@ -394,13 +773,19 @@
                     android:singleLine="false"
                     android:textColor="@color/grayColor" />
         </com.google.android.material.textfield.TextInputLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+
 
         <com.google.android.material.button.MaterialButton
                 android:id="@+id/postAgregarBtn"
                 android:textColor="@color/whiteColor"
-                android:padding="16dp"
+                android:padding="24dp"
+                app:cornerRadius="16dp"
                 android:layout_margin="16dp"
-                android:fontFamily="@font/ubuntu_medium"
+                android:fontFamily="@font/montserrat"
                 app:backgroundTint="@color/secondaryColor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
