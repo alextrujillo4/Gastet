@@ -19,9 +19,14 @@ import androidx.cardview.widget.CardView
 import androidx.core.app.ActivityCompat
 import com.bumptech.glide.Glide
 import com.example.alextrujillo.gastetandroid.R
+import com.example.alextrujillo.gastetandroid.data.model.Location
 import com.example.alextrujillo.gastetandroid.data.model.Post
 import com.example.alextrujillo.gastetandroid.data.model.User
 import com.google.android.material.button.MaterialButton
+import com.google.firebase.FirebaseApp
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.fragment_post.*
@@ -29,6 +34,12 @@ import kotlinx.android.synthetic.main.fragment_post.*
 
 class PostFragment : androidx.fragment.app.Fragment(), View.OnClickListener {
 
+
+    var  mDatabase : DatabaseReference ?=null
+    override fun onStart() {
+        super.onStart()
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+    }
     var perdido: Boolean = true
     var encontrado: Boolean = false
     var adopcion: Boolean = false
@@ -150,24 +161,60 @@ class PostFragment : androidx.fragment.app.Fragment(), View.OnClickListener {
             R.id.postAgregarBtn -> {
                 if (verifyPost()) {
                     comentarios = postComentariosET.getText().toString().trim()
-                    when (getPostType()){
-                        /*
-                        (val postType : String, val petType : String, val photoUrl : String,
-                       val phone : String , val author : User, val comments : String, val city : String,
-                       val  municipality : String, val address : String, val timestamp : String,
-                       val breed : String, val gender : String, var  userid : String)
+                    /*
+                              (Post constructor) ==> (
+                              val photoUrl : String,
+                              val postType : String, ==> found, lost, adopt
+                               var location : Location,
+                               val responsibleAdoption: Boolean,
+                               val petType : String, ==> dog, cat, other
+                               val name : String,
+                               val gender : String, ==> male, female
+                               val breed : String?,
+                               val reward: Boolean,
+                               val price : Double,
+                               val timestamp : String, ==> Usar Formato Universal
+                               val phone : String,
+                               val comments : String?,
+                               var userid : String ,   val user : User)
 
-                       */
+                               #reward, price, responsibleAdoption ==> are not  variables included into all postTypes
+                              */
+                    val location  = Location("Monterrey", "Av. Revolución, 2000",
+                        "Monterrey","123","123")
+
+                    /*val user = User ("Alex Trujillo", "123",
+                        "9212949195", "alexandro4v@gmail.com")*/
+
+
+                    when (getPostType()){
                         "PERDIDO" -> {
+                            //Add reward, price
+                            val perdido  = Post("","lost",location,
+                                null, "dog", "Custom Name",
+                                "male", "Pug Carlino",
+                                true,100.00,"1541045695762",
+                                "921 2040 105", "Mi comentario", "123", user)
+                            writtePost(perdido)
 
                         }
                         "ENCONTRADO" -> {
+                            val encontrado  = Post("","found",location,
+                                null, "dog", "Custom Name",
+                                "male", "Pug Carlino",
+                                null,null,"1541045695762",
+                                "921 2040 105", "Mi comentario", "123", user)
+                            writtePost(encontrado)
 
                         }
-
                         "ADOPCION" -> {
-
-
+                            //Add responsibleAdoption
+                            val adopcion  = Post("","found",location,
+                                true, "dog", "Custom Name",
+                                "male", "Pug Carlino",
+                                null,null,"1541045695762",
+                                "921 2040 105", "Mi comentario", "123", user)
+                            writtePost(adopcion)
                         }
                     }
                 } else {
@@ -380,6 +427,11 @@ class PostFragment : androidx.fragment.app.Fragment(), View.OnClickListener {
                 hayImagen = true
             }
         }
+    }
+
+
+    fun writtePost( post: Post) {
+        mDatabase?.child("model")?.child("Post")?.setValue(post)
     }
 
 
