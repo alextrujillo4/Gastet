@@ -181,10 +181,10 @@ class PostFragment : androidx.fragment.app.Fragment(), View.OnClickListener {
                                #reward, price, responsibleAdoption ==> are not  variables included into all postTypes
                               */
                     val location  = Location("Monterrey", "Av. Revolución, 2000",
-                        "Monterrey","123","123")
+                        "Monterrey",0.0,0.0)
 
-                    /*val user = User ("Alex Trujillo", "123",
-                        "9212949195", "alexandro4v@gmail.com")*/
+                   // val user = User ("Alex Trujillo", "123",
+                        //"9212949195", "alexandro4v@gmail.com")
 
 
                     when (getPostType()){
@@ -193,8 +193,8 @@ class PostFragment : androidx.fragment.app.Fragment(), View.OnClickListener {
                             val perdido  = Post("","lost",location,
                                 null, "dog", "Custom Name",
                                 "male", "Pug Carlino",
-                                true,100.00,"1541045695762",
-                                "921 2040 105", "Mi comentario", "123", user)
+                                "withReward",100,1541045695762,
+                                "921 2040 105", "Mi comentario", "123","Av. Sin nombre #1","Monterrey")
                             writtePost(perdido)
 
                         }
@@ -202,18 +202,18 @@ class PostFragment : androidx.fragment.app.Fragment(), View.OnClickListener {
                             val encontrado  = Post("","found",location,
                                 null, "dog", "Custom Name",
                                 "male", "Pug Carlino",
-                                null,null,"1541045695762",
-                                "921 2040 105", "Mi comentario", "123", user)
+                                null,null,1541045695762,
+                                "921 2040 105", "Mi comentario", "123","Av. Sin nombre #1","Monterrey")
                             writtePost(encontrado)
 
                         }
                         "ADOPCION" -> {
                             //Add responsibleAdoption
                             val adopcion  = Post("","found",location,
-                                true, "dog", "Custom Name",
+                                "no", "dog", "Custom Name",
                                 "male", "Pug Carlino",
-                                null,null,"1541045695762",
-                                "921 2040 105", "Mi comentario", "123", user)
+                                null,null,1541045695762,
+                                "921 2040 105", "Mi comentario", "123","Av. Sin nombre #1","Monterrey")
                             writtePost(adopcion)
                         }
                     }

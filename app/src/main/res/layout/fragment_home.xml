@@ -1,20 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context=".ui.main.HomeFragment"
-android:orientation="vertical">
-
-
-    <!-- TODO: Update blank fragment layout -->
-
-    <TextView
-            android:padding="24dp"
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Mascotas Perdidas"
-            android:fontFamily="@font/ubuntu_bold"
-            android:textSize="24dp"
-            android:textColor="@color/blackColor"/>
-</LinearLayout>
+            android:orientation="vertical">
+
+        <TextView
+                android:padding="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mascotas Perdidas"
+                android:fontFamily="@font/ubuntu_bold"
+                android:textSize="24dp"
+                android:textColor="@color/blackColor"/>
+
+        <androidx.core.widget.NestedScrollView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:orientation="horizontal"
+                    android:id="@+id/lost_pets_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:overScrollMode="never"
+                    tools:listitem="@layout/post_item"
+            /><!---->
+        </androidx.core.widget.NestedScrollView>
+        <TextView
+                android:padding="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mascotas Encontradas"
+                android:fontFamily="@font/ubuntu_bold"
+                android:textSize="24dp"
+                android:textColor="@color/blackColor"/>
+
+        <include layout="@layout/post_item"></include>
+
+        <TextView
+                android:padding="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Adopción"
+                android:fontFamily="@font/ubuntu_bold"
+                android:textSize="24dp"
+                android:textColor="@color/blackColor"/>
+
+        <include layout="@layout/post_item"></include>
+    </LinearLayout>
+
+</ScrollView>
