@@ -22,6 +22,7 @@ import com.example.alextrujillo.gastetandroid.R
 import com.example.alextrujillo.gastetandroid.data.model.Location
 import com.example.alextrujillo.gastetandroid.data.model.Post
 import com.example.alextrujillo.gastetandroid.data.model.User
+import com.example.alextrujillo.gastetandroid.util.Database
 import com.google.android.material.button.MaterialButton
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
@@ -35,10 +36,11 @@ import kotlinx.android.synthetic.main.fragment_post.*
 class PostFragment : androidx.fragment.app.Fragment(), View.OnClickListener {
 
 
-    var  mDatabase : DatabaseReference ?=null
+    lateinit var  mDatabase : DatabaseReference
     override fun onStart() {
         super.onStart()
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase = Database.getDatabase().getReference()
+
     }
     var perdido: Boolean = true
     var encontrado: Boolean = false

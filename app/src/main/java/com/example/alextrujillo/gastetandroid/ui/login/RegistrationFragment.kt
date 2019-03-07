@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.Navigation.findNavController
 import com.example.alextrujillo.gastetandroid.R
+import com.example.alextrujillo.gastetandroid.data.model.User
+import com.example.alextrujillo.gastetandroid.util.Database
 import com.google.android.material.button.MaterialButton
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_registration.*
@@ -65,12 +67,14 @@ class RegistrationFragment() : androidx.fragment.app.Fragment(), View.OnClickLis
                 var username: String = usernameET.text.toString()
                 var email: String = emailET.text.toString()
                 var password: String = passwordET.text.toString()
+                var myUser = User(username,email)
                 if (isAValidUser(username, email, password)) {
                     auth!!.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this.activity!!) { task ->
                         if (!task.isSuccessful) {
                             Toast.makeText(context, "Usuario existente, por favor inicia sesión.", Toast.LENGTH_SHORT).show()
                         } else {
                             Toast.makeText(context, "¡Bienvenido " + username + "!" , Toast.LENGTH_SHORT).show()
+                            Database.getDatabase().getReference().child("users").child(FirebaseAuth.getInstance().uid!!).setValue(myUser)
                         }
                     }
                 }

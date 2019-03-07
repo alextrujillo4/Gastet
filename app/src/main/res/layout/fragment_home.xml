@@ -19,20 +19,21 @@
                 android:textSize="24dp"
                 android:textColor="@color/blackColor"/>
 
-        <androidx.core.widget.NestedScrollView
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                <androidx.core.widget.NestedScrollView
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
 
-            <androidx.recyclerview.widget.RecyclerView
-                    android:orientation="horizontal"
-                    android:id="@+id/lost_pets_recycler"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:overScrollMode="never"
-                    tools:listitem="@layout/post_item"
-            /><!---->
-        </androidx.core.widget.NestedScrollView>
+                    <androidx.recyclerview.widget.RecyclerView
+                            android:orientation="horizontal"
+                            android:id="@+id/lost_pets_recycler"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:overScrollMode="never"
+                            tools:listitem="@layout/post_item"
+                    /><!---->
+                </androidx.core.widget.NestedScrollView>
+
         <TextView
                 android:padding="24dp"
                 android:layout_width="match_parent"
@@ -42,7 +43,20 @@
                 android:textSize="24dp"
                 android:textColor="@color/blackColor"/>
 
-        <include layout="@layout/post_item"></include>
+                <androidx.core.widget.NestedScrollView
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                            android:orientation="horizontal"
+                            android:id="@+id/found_pets_recycler"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:overScrollMode="never"
+                            tools:listitem="@layout/post_item"
+                    /><!---->
+                </androidx.core.widget.NestedScrollView>
 
         <TextView
                 android:padding="24dp"
@@ -53,7 +67,20 @@
                 android:textSize="24dp"
                 android:textColor="@color/blackColor"/>
 
-        <include layout="@layout/post_item"></include>
+        <androidx.core.widget.NestedScrollView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:orientation="horizontal"
+                    android:id="@+id/adoption_pets_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:overScrollMode="never"
+                    tools:listitem="@layout/post_item"
+            /><!---->
+        </androidx.core.widget.NestedScrollView>
     </LinearLayout>
 
 </ScrollView>

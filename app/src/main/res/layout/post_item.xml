@@ -79,18 +79,30 @@
                 <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:paddingTop="16dp"
                         android:layout_gravity="bottom"
                         android:layout_margin="16dp"
                         android:orientation="horizontal">
-                    <ImageView
-                            android:layout_width="40dp"
-                            android:layout_gravity="center"
-                            android:id="@+id/petsex_iv"
-                            android:layout_height="40dp"
-                            android:layout_marginEnd="16dp"
 
-                            android:src="@drawable/icon_male"/>
+                    <androidx.coordinatorlayout.widget.CoordinatorLayout
+                            android:layout_width="48dp"
+
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="16dp"
+                            android:layout_height="48dp">
+                        <ImageView
+                                android:layout_width="match_parent"
+                                android:id="@+id/peticon_iv"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/pettype_dog"/>
+                        <ImageView
+                                android:layout_width="18dp"
+                                android:id="@+id/petsex_iv"
+                                android:layout_height="18dp"
+                                android:layout_gravity="bottom|right"
+                                android:src="@drawable/icon_male"/>
+
+                    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
                     <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -98,7 +110,8 @@
 
                         <TextView android:layout_width="match_parent"
                                   android:layout_height="match_parent"
-                                  android:textSize="14dp"
+                                  android:textSize="13dp"
+                                  android:textAllCaps="true"
                                   android:id="@+id/cities_tv"
                                   android:gravity="center_vertical"
                                   android:text="MONTERREY  SAN PEDRO"
@@ -151,8 +164,8 @@
             <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     card_view:cardElevation="8dp"
-                    android:layout_marginEnd="24dp"
-                    android:layout_marginTop="56dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="64dp"
                     android:layout_marginStart="40dp"
                     app:cardCornerRadius="40dp"
                     android:layout_gravity="center|end"
@@ -164,15 +177,17 @@
                         android:background="@drawable/main_gradient">
                     <com.google.android.material.button.MaterialButton
                             android:clickable="false"
-                            android:layout_width="match_parent"
+                            app:rippleColor="@null"
+                            android:layout_margin="2dp"
+                            android:layout_width="48dp"
                             android:id="@+id/peoplesearching_btn"
-                            android:layout_height="40dp"
-                            app:iconSize="14dp"
+                            android:layout_height="48dp"
+                            app:iconSize="20dp"
                             android:textAllCaps="false"
                             app:iconGravity="textStart"
+                            app:icon="@drawable/round_comment_24"
                             app:iconTint="@color/primaryColor"
-                            android:text="Ver comentarios"
-                            style="@style/Widget.MaterialComponents.Button.TextButton.Dialog"
+                            style="@style/Widget.MaterialComponents.Button.TextButton.Dialog.Icon"
                             android:textColor="@color/whiteColor"
                             android:fontFamily="@font/montserrat"/>
                 </LinearLayout>

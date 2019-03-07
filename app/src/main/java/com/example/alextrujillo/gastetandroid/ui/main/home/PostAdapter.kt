@@ -1,6 +1,7 @@
 package com.example.alextrujillo.gastetandroid.ui.main.home
 
 import android.content.Context
+import android.text.InputType
 import android.text.format.DateFormat
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,10 +12,19 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.bumptech.glide.request.RequestOptions
 import com.example.alextrujillo.gastetandroid.R
 import com.example.alextrujillo.gastetandroid.data.model.Post
 import com.google.android.material.button.MaterialButton
 import java.util.*
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.FirebaseDatabase
+import com.example.alextrujillo.gastetandroid.data.model.User
+import com.example.alextrujillo.gastetandroid.util.Database
+import org.apache.commons.lang3.text.WordUtils
 
 
 class PostAdapter(val items: List<Post>, val position: Int,val  context: Context) : RecyclerView.Adapter<PostAdapter.ViewHolder>() {
@@ -30,16 +40,22 @@ class PostAdapter(val items: List<Post>, val position: Int,val  context: Context
         return ViewHolder(view)
     }
 
-
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val post = items[position]
         Log.d("POST_INSIDE: ", "123456789")
-        //holder.username_tv.setText(post.user.username)
         holder.posttime_tv.setText(getDate(post.timestamp))
-        holder.petname_tv.setText(post.name)
-        holder.breed_tv.setText(post.breed)
-       holder.phone_tv.setText(post.phone)
+
+        val petName: String = WordUtils.capitalizeFully(post.name)
+        val petBreed: String = WordUtils.capitalizeFully(post.breed)
+
+
+        if(!post.name.isNullOrEmpty()) {
+            holder.petname_tv.setText(petName)
+        } else
+            holder.petname_tv.setText("Sin nombre")
+
+        holder.breed_tv.setText(petBreed)
+        holder.phone_tv.setText(post.phone)
 
 
         if (!post.location.city.isNullOrEmpty())
@@ -61,10 +77,60 @@ class PostAdapter(val items: List<Post>, val position: Int,val  context: Context
 
 
 
-
         Glide.with(context)
             .load(post.photoUrl)
+            .transition(DrawableTransitionOptions.withCrossFade())
             .into(holder.petImage_iv)
+
+
+        val database = Database.getDatabase()
+            val ref = database.getReference("users/${post.userid}")
+            ref.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    val user = dataSnapshot.getValue(User::class.java)
+                    holder.username_tv.setText(user!!.username)
+                    Glide.with(context)
+                        .load(user.photoUrl)
+                        .apply(RequestOptions.circleCropTransform())
+                        .into(holder.userImage_iv)
+
+                }
+
+                override fun onCancelled(databaseError: DatabaseError) {
+                    // ...
+                }
+            })
+
+        if (post.petType == "dog")
+            Glide.with(context).load(R.drawable.pettype_dog).into(holder.peticon_iv)
+        else if (post.petType == "cat")
+            Glide.with(context).load(R.drawable.pettype_cat).into(holder.peticon_iv)
+        else{
+            Glide.with(context).load(R.drawable.pettype_other).into(holder.peticon_iv)
+        }
+
+        if (post.gender == "male")
+            Glide.with(context).load(R.drawable.gender_male).into(holder.petsex_iv)
+        else if (post.gender == "female")
+            Glide.with(context).load(R.drawable.gender_female).into(holder.petsex_iv)
+        else
+            holder.petsex_iv.visibility= View.GONE
+
+        when (post.postType) {
+            "lost" ->  {
+                holder.breed_tv.visibility = View.VISIBLE
+            }
+
+            "found" -> {
+                holder.breed_tv.visibility = View.GONE
+                holder.petname_tv.setText(petBreed)
+            }
+            "adopt" -> {
+                holder.breed_tv.visibility = View.GONE
+                holder.petname_tv.setText(petBreed)
+            }
+        }
+
 
         holder.itemView.setOnClickListener {
             /*Intent intent = new Intent(context, DetailActivity.class);
@@ -81,7 +147,6 @@ class PostAdapter(val items: List<Post>, val position: Int,val  context: Context
 
      fun getDate( time : Long) : String {
          val cal = Calendar.getInstance(Locale.ENGLISH)
-         //cal.setTimeInMillis(time * 1000)
          return DateFormat.format("EEE d MMM yyyy", cal).toString()
     }
 
@@ -93,10 +158,11 @@ class PostAdapter(val items: List<Post>, val position: Int,val  context: Context
         val breed_tv: TextView = view.findViewById(R.id.breed_tv)
         val phone_tv: TextView = view.findViewById(R.id.phone_tv)
         val adress_tv: TextView = view.findViewById(R.id.adress_tv)
-        val peoplesearching_btn: MaterialButton = view.findViewById(R.id.peoplesearching_btn)
+        val coments: MaterialButton = view.findViewById(R.id.peoplesearching_btn)
         val petImage_iv: ImageView = view.findViewById(R.id.petImage_iv)
         val userImage_iv: ImageView = view.findViewById(R.id.userImage_iv)
-        val petsex_iv: ImageView = view.findViewById(R.id.petsex_iv)
+            val peticon_iv: ImageView = view.findViewById(R.id.peticon_iv)
+            val petsex_iv: ImageView = view.findViewById(R.id.petsex_iv)
 
     }
 

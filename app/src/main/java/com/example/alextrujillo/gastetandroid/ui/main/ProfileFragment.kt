@@ -6,11 +6,16 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment.findNavController
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 
 import com.example.alextrujillo.gastetandroid.R
+import com.example.alextrujillo.gastetandroid.data.model.User
+import com.example.alextrujillo.gastetandroid.util.Database
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.main_activity.*
 
@@ -19,10 +24,10 @@ import kotlinx.android.synthetic.main.main_activity.*
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- *
- */
+lateinit var usernameTV : TextView
+lateinit var emailTV : TextView
+lateinit var porfileImageIV : ImageView
+
 class ProfileFragment : androidx.fragment.app.Fragment() {
 
     override fun onCreateView(
@@ -33,14 +38,15 @@ class ProfileFragment : androidx.fragment.app.Fragment() {
         val v : View =  inflater.inflate(R.layout.fragment_profile, container, false)
         Log.w("ProfileFragment: ","Entrando...")
         setHasOptionsMenu(true)
+        val actualUser : User  = Database.getUser()
         val  imageView  = v.findViewById<ImageView>(R.id.profileProfileImageIV)
-        val matrix : Matrix = imageView.getImageMatrix()
-        val imageWidth: Float = imageView.getDrawable().getIntrinsicWidth().toFloat()
-        val screenWidth : Int = getResources().getDisplayMetrics().widthPixels
-        val scaleRatio : Float = screenWidth / imageWidth
-        matrix.postScale(scaleRatio, scaleRatio);
-        imageView.setImageMatrix(matrix);
-
+        usernameTV = v.findViewById(R.id.username_usr_tv)
+        usernameTV.setText(actualUser.username)
+        emailTV = v.findViewById(R.id.email_usr_tv)
+        emailTV.setText(actualUser.email)
+        Glide.with(context!!)
+            .load(actualUser.photoUrl)
+            .into(imageView)
         return v
     }
 

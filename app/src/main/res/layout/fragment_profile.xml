@@ -29,6 +29,7 @@
 
                     android:orientation="vertical">
                 <TextView
+                        android:id="@+id/username_usr_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/ubuntu_bold"
@@ -36,6 +37,7 @@
                         android:textSize="32dp"
                         android:text="Username"/>
                 <TextView
+                        android:id="@+id/email_usr_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/ubuntu_medium"

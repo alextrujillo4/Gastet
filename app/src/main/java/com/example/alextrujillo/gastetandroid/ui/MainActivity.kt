@@ -13,13 +13,13 @@ import com.example.alextrujillo.gastetandroid.R
 import com.example.alextrujillo.gastetandroid.ui.main.PostFragment
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import com.theartofdev.edmodo.cropper.CropImage
 import kotlinx.android.synthetic.main.main_activity.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener,NavController.OnDestinationChangedListener{
 
     private var mAuth: FirebaseAuth? = null
-    //private var manuStatus = true;
 
     override fun onResume() {
         super.onResume()
@@ -38,7 +38,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,NavController.OnD
 
 
     override fun onDestinationChanged(controller: NavController, destination: NavDestination, arguments: Bundle?) {
-
         when (destination.id) {
             R.id.homeFragment -> {
                 maintoolbarTitle.setText("GASTET")
