@@ -1,6 +1,7 @@
 package com.example.alextrujillo.gastetandroid.ui.main
 
 
+import android.content.Context
 import android.graphics.Matrix
 import android.os.Bundle
 import android.util.Log
@@ -10,23 +11,32 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
 import com.example.alextrujillo.gastetandroid.R
+import com.example.alextrujillo.gastetandroid.data.model.Post
 import com.example.alextrujillo.gastetandroid.data.model.User
+import com.example.alextrujillo.gastetandroid.ui.main.adapter.PostAdapter
 import com.example.alextrujillo.gastetandroid.util.Database
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.main_activity.*
+import java.util.ArrayList
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 lateinit var usernameTV : TextView
 lateinit var emailTV : TextView
 lateinit var porfileImageIV : ImageView
+
+lateinit var  ref : DatabaseReference
+lateinit var my_posts_recycler : RecyclerView
+val POST_MY_POSTS : ArrayList<Post> = ArrayList()
 
 class ProfileFragment : androidx.fragment.app.Fragment() {
 
@@ -47,9 +57,49 @@ class ProfileFragment : androidx.fragment.app.Fragment() {
         Glide.with(context!!)
             .load(actualUser.photoUrl)
             .into(imageView)
+
+
+        setHasOptionsMenu(true)
+        my_posts_recycler = v.findViewById(R.id.my_post_recycler)
+        val llm = LinearLayoutManager(context)
+        llm.orientation = RecyclerView.HORIZONTAL
+        my_posts_recycler.setLayoutManager(llm)
+        getPostsData()
         return v
     }
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        ref = Database.getDatabase().getReference("posts")
+    }
+    private fun getPostsData() {
+        val postList = ArrayList<Post>()
+        ref.keepSynced(true)
+        ref.limitToLast(50).orderByChild("timestamp")
+            .addValueEventListener(object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onDataChange(snapshot: DataSnapshot) {
+                postList.clear()
+                for (postSnapshot: DataSnapshot in snapshot.getChildren()) {
+                    val post = postSnapshot.getValue(Post::class.java)
+                    if (post != null) {
+                       // if (post.userid == Database.getFireId()){}
+                        POST_MY_POSTS.add(post)
+                        my_posts_recycler.adapter = PostAdapter(
+                            POST_MY_POSTS,
+                            POST_MY_POSTS.size,
+                            context!!
+                        )
+                    }
+
+                }
+            }
+        })
+
+    }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)

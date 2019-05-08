@@ -3,4 +3,5 @@
     <dimen name="shrine_toolbar_offset_start">124</dimen>
     <dimen name="shrine_toolbar_offset_top">124</dimen>
     <dimen name="shrine_toolbar_image_offset_top">24</dimen>
+    <dimen name="text_margin">16dp</dimen>
 </resources>

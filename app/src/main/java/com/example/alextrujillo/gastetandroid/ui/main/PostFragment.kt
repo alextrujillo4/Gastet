@@ -433,7 +433,7 @@ class PostFragment : androidx.fragment.app.Fragment(), View.OnClickListener {
 
 
     fun writtePost( post: Post) {
-        mDatabase?.child("model")?.child("Post")?.setValue(post)
+        mDatabase.child("model").child("Post").setValue(post)
     }
 
 

@@ -1,7 +1,8 @@
-package com.example.alextrujillo.gastetandroid.ui.main.home
+package com.example.alextrujillo.gastetandroid.ui.main.adapter
 
 import android.content.Context
-import android.text.InputType
+import android.content.Intent
+import android.os.Bundle
 import android.text.format.DateFormat
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
@@ -21,8 +23,9 @@ import java.util.*
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.FirebaseDatabase
 import com.example.alextrujillo.gastetandroid.data.model.User
+import com.example.alextrujillo.gastetandroid.ui.MainActivity
+import com.example.alextrujillo.gastetandroid.ui.PostDetailActivity
 import com.example.alextrujillo.gastetandroid.util.Database
 import org.apache.commons.lang3.text.WordUtils
 
@@ -133,14 +136,9 @@ class PostAdapter(val items: List<Post>, val position: Int,val  context: Context
 
 
         holder.itemView.setOnClickListener {
-            /*Intent intent = new Intent(context, DetailActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("OBJTYPE","POST");
-                bundle.putSerializable(MYPOST,post);
-                intent.putExtra("POSITION", position);
-                intent.putExtra(MYBUNDLE,bundle);
-                ((MainActivity) context).startActivityForResult(intent,PROYECTO_CODE);*/
-            Toast.makeText(context, "Post Clicked", Toast.LENGTH_SHORT).show()
+            val intent = Intent(context, PostDetailActivity::class.java)
+            intent.putExtra("studentData", items.get(position))
+            startActivity(context, intent, null)
         }
 
     }

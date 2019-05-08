@@ -12,6 +12,7 @@ public class Database {
     private static FirebaseDatabase mDatabase;
     private static FirebaseUser firebaseUser;
     private static User user;
+    private static String userFireId;
 
 
     public static FirebaseDatabase getDatabase() {
@@ -24,6 +25,18 @@ public class Database {
         return mDatabase;
     }
 
+
+    public static String getFireId() {
+        if (user == null || userFireId == null|| mDatabase == null);
+        mDatabase = FirebaseDatabase.getInstance();
+        userFireId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        try {
+            downloadUser();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return  userFireId;
+    }
     public static User getUser() {
         if (user == null || firebaseUser == null|| mDatabase == null);
         mDatabase = FirebaseDatabase.getInstance();

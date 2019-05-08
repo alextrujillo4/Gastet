@@ -1,9 +1,8 @@
-package com.example.alextrujillo.gastetandroid.ui.main.home
+package com.example.alextrujillo.gastetandroid.ui.main
 
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,17 +10,13 @@ import androidx.recyclerview.widget.RecyclerView
 
 import com.example.alextrujillo.gastetandroid.R
 import com.example.alextrujillo.gastetandroid.data.model.Post
+import com.example.alextrujillo.gastetandroid.ui.main.adapter.PostAdapter
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.fragment_home.*
 import java.util.ArrayList
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DataSnapshot
-import android.text.method.TextKeyListener.clear
 import com.example.alextrujillo.gastetandroid.util.Database
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.FirebaseError
-
-
 
 
 class HomeFragment : androidx.fragment.app.Fragment() {
@@ -68,8 +63,6 @@ class HomeFragment : androidx.fragment.app.Fragment() {
     }
 
 
-
-
     private fun getPostData() {
         val postList = ArrayList<Post>()
         ref.keepSynced(true);
@@ -89,9 +82,21 @@ class HomeFragment : androidx.fragment.app.Fragment() {
                     }
 
                 }
-                lost_pets_recycler.adapter  = PostAdapter(POST_LIST_LOST, POST_LIST_LOST.size, context!!)
-                found_pets_recycler.adapter  = PostAdapter(POST_LIST_FOUND, POST_LIST_FOUND.size, context!!)
-                adopt_pets_recycler.adapter  = PostAdapter(POST_LIST_ADOPT, POST_LIST_ADOPT.size, context!!)
+                lost_pets_recycler.adapter  = PostAdapter(
+                    POST_LIST_LOST,
+                    POST_LIST_LOST.size,
+                    context!!
+                )
+                found_pets_recycler.adapter  = PostAdapter(
+                    POST_LIST_FOUND,
+                    POST_LIST_FOUND.size,
+                    context!!
+                )
+                adopt_pets_recycler.adapter  = PostAdapter(
+                    POST_LIST_ADOPT,
+                    POST_LIST_ADOPT.size,
+                    context!!
+                )
             }
         });
     }
