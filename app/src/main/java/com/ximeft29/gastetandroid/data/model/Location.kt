@@ -1,4 +1,4 @@
-package com.example.alextrujillo.gastetandroid.data.model
+package com.ximeft29.gastetandroid.data.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
-          package="com.example.alextrujillo.gastetandroid">
+          package="com.ximeft29.gastetandroid">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -22,11 +22,11 @@
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
             tools:ignore="GoogleAppIndexingWarning">
         <activity
-                android:name=".ui.PostDetailActivity"
+                android:name="com.ximeft29.gastetandroid.ui.PostDetailActivity"
                 android:label="@string/title_activity_post_detail">
         </activity>
         <activity
-                android:name=".ui.MainActivity"
+                android:name="com.ximeft29.gastetandroid.ui.MainActivity"
                 android:theme="@style/AppThemeCustom">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

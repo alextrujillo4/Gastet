@@ -1,8 +1,7 @@
-package com.example.alextrujillo.gastetandroid.ui.main
+package com.ximeft29.gastetandroid.ui.main
 
 
 import android.content.Context
-import android.graphics.Matrix
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -14,13 +13,12 @@ import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 
-import com.example.alextrujillo.gastetandroid.R
-import com.example.alextrujillo.gastetandroid.data.model.Post
-import com.example.alextrujillo.gastetandroid.data.model.User
-import com.example.alextrujillo.gastetandroid.ui.main.adapter.PostAdapter
-import com.example.alextrujillo.gastetandroid.util.Database
+import com.ximeft29.gastetandroid.R
+import com.ximeft29.gastetandroid.data.model.Post
+import com.ximeft29.gastetandroid.data.model.User
+import com.ximeft29.gastetandroid.ui.main.adapter.PostAdapter
+import com.ximeft29.gastetandroid.util.Database
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError

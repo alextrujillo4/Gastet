@@ -1,4 +1,4 @@
-package com.example.alextrujillo.gastetandroid
+package com.ximeft29.gastetandroid
 
 import org.junit.Test
 

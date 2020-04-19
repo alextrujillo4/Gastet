@@ -1,6 +1,4 @@
-package com.example.alextrujillo.gastetandroid.data.model
-
-import android.net.Uri
+package com.ximeft29.gastetandroid.data.model
 
 class User {
 

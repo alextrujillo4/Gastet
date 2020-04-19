@@ -1,4 +1,4 @@
-package com.example.alextrujillo.gastetandroid.ui.login
+package com.ximeft29.gastetandroid.ui.login
 
 
 import android.os.Bundle
@@ -8,9 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.Navigation.findNavController
-import com.example.alextrujillo.gastetandroid.R
-import com.example.alextrujillo.gastetandroid.data.model.User
-import com.example.alextrujillo.gastetandroid.util.Database
+import com.ximeft29.gastetandroid.R
+import com.ximeft29.gastetandroid.data.model.User
+import com.ximeft29.gastetandroid.util.Database
 import com.google.android.material.button.MaterialButton
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_registration.*

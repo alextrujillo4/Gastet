@@ -7,7 +7,7 @@ apply plugin: 'com.google.gms.google-services'
 android {
     compileSdkVersion 29
     defaultConfig {
-        applicationId "com.example.alextrujillo.gastetandroid"
+        applicationId "com.ximeft29.gastetandroid"
         minSdkVersion 23
         targetSdkVersion 29
         versionCode 1

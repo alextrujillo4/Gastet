@@ -1,9 +1,8 @@
-package com.example.alextrujillo.gastetandroid.ui
+package com.ximeft29.gastetandroid.ui
 
 import android.os.Bundle
 import android.app.Activity
-import com.example.alextrujillo.gastetandroid.R
-import kotlinx.android.synthetic.main.activity_post_detail.*
+import com.ximeft29.gastetandroid.R
 
 class PostDetailActivity : Activity() {
 

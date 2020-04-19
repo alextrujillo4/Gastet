@@ -1,4 +1,4 @@
-package com.example.alextrujillo.gastetandroid.ui.main.adapter
+package com.ximeft29.gastetandroid.ui.main.adapter
 
 import android.Manifest
 import android.content.Context
@@ -17,11 +17,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
-import com.example.alextrujillo.gastetandroid.R
-import com.example.alextrujillo.gastetandroid.data.model.Post
-import com.example.alextrujillo.gastetandroid.data.model.User
-import com.example.alextrujillo.gastetandroid.ui.MainActivity
-import com.example.alextrujillo.gastetandroid.util.Database
+import com.ximeft29.gastetandroid.R
+import com.ximeft29.gastetandroid.data.model.Post
+import com.ximeft29.gastetandroid.data.model.User
+import com.ximeft29.gastetandroid.ui.MainActivity
+import com.ximeft29.gastetandroid.util.Database
 import com.google.android.material.button.MaterialButton
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -142,7 +142,7 @@ class PostAdapter(val items: List<Post>, val position: Int,val  context: Context
                 val callIntent = Intent(Intent.ACTION_DIAL, number)
                 context.startActivity(callIntent)
             } catch (e: SecurityException) {
-                Toast.makeText(context!!, "La app no tiene permiso para hacer una llamada.", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "La app no tiene permiso para hacer una llamada.", Toast.LENGTH_LONG).show()
             }
         }
 

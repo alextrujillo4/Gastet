@@ -1,4 +1,4 @@
-package com.example.alextrujillo.gastetandroid.ui
+package com.ximeft29.gastetandroid.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,11 +9,10 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.*
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
-import com.example.alextrujillo.gastetandroid.R
-import com.example.alextrujillo.gastetandroid.ui.main.PostFragment
+import com.ximeft29.gastetandroid.R
+import com.ximeft29.gastetandroid.ui.main.PostFragment
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
 import com.theartofdev.edmodo.cropper.CropImage
 import kotlinx.android.synthetic.main.main_activity.*
 

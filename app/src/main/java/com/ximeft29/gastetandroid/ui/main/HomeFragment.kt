@@ -1,4 +1,4 @@
-package com.example.alextrujillo.gastetandroid.ui.main
+package com.ximeft29.gastetandroid.ui.main
 
 
 import android.content.Context
@@ -7,10 +7,10 @@ import android.view.*
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.alextrujillo.gastetandroid.R
-import com.example.alextrujillo.gastetandroid.data.model.Post
-import com.example.alextrujillo.gastetandroid.ui.main.adapter.PostAdapter
-import com.example.alextrujillo.gastetandroid.util.Database
+import com.ximeft29.gastetandroid.R
+import com.ximeft29.gastetandroid.data.model.Post
+import com.ximeft29.gastetandroid.ui.main.adapter.PostAdapter
+import com.ximeft29.gastetandroid.util.Database
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.database.*
 import java.util.*
@@ -65,13 +65,14 @@ class HomeFragment : androidx.fragment.app.Fragment() {
     private fun getPostData() {
         val postList = ArrayList<Post>()
         ref.keepSynced(true);
-        ref.limitToLast(50).orderByChild("timestamp").addValueEventListener( object : ValueEventListener {
+        ref.orderByChild("timestamp").addValueEventListener( object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {
                 postList.clear()
+
                 for (postSnapshot: DataSnapshot in snapshot.getChildren()) {
                     val post = postSnapshot.getValue(Post::class.java)
                     when (post?.postType) {

@@ -1,9 +1,7 @@
-package com.example.alextrujillo.gastetandroid.util;
+package com.ximeft29.gastetandroid.util;
 
-import android.net.Uri;
-import android.util.Log;
 import androidx.annotation.NonNull;
-import com.example.alextrujillo.gastetandroid.data.model.User;
+import com.ximeft29.gastetandroid.data.model.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.*;

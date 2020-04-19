@@ -1,4 +1,4 @@
-package com.example.alextrujillo.gastetandroid.ui.main
+package com.ximeft29.gastetandroid.ui.main
 
 
 import android.Manifest
@@ -18,16 +18,12 @@ import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.core.app.ActivityCompat
 import com.bumptech.glide.Glide
-import com.example.alextrujillo.gastetandroid.R
-import com.example.alextrujillo.gastetandroid.data.model.Location
-import com.example.alextrujillo.gastetandroid.data.model.Post
-import com.example.alextrujillo.gastetandroid.data.model.User
-import com.example.alextrujillo.gastetandroid.util.Database
+import com.ximeft29.gastetandroid.R
+import com.ximeft29.gastetandroid.data.model.Location
+import com.ximeft29.gastetandroid.data.model.Post
+import com.ximeft29.gastetandroid.util.Database
 import com.google.android.material.button.MaterialButton
-import com.google.firebase.FirebaseApp
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.fragment_post.*

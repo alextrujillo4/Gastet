@@ -8,17 +8,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1007572944431:android:af56f4a0017ba3ee",
+        "mobilesdk_app_id": "1:1007572944431:android:81361426a72629a04da8da",
         "android_client_info": {
-          "package_name": "com.example.alextrujillo.gastetandroid"
+          "package_name": "com.ximeft29.gastetandroid"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1007572944431-vpc1vaclrcvijcebdege61mib53d0rrl.apps.googleusercontent.com",
+          "client_id": "1007572944431-ha5fbc2o3h0v5r3l2uej8p6mnio4nmbp.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.alextrujillo.gastetandroid",
+            "package_name": "com.ximeft29.gastetandroid",
             "certificate_hash": "8bc17e335cc42b6f8ded90672431287441e57dde"
           }
         },
@@ -33,11 +33,7 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
               "client_id": "1007572944431-51r3r96otjlfsvgnvqip20kl8bg7v600.apps.googleusercontent.com",
@@ -51,9 +47,6 @@
               }
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
         }
       }
     }

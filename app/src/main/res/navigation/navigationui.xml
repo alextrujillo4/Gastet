@@ -7,30 +7,30 @@
 
 
     <fragment android:id="@+id/postFragment"
-              android:name="com.example.alextrujillo.gastetandroid.ui.main.PostFragment"
+              android:name="com.ximeft29.gastetandroid.ui.main.PostFragment"
               android:label="fragment_post"
-              tools:layout="@layout/fragment_post_item">
+              tools:layout="@layout/fragment_post">
     </fragment>
 
     <fragment android:id="@+id/profileFragment"
-              android:name="com.example.alextrujillo.gastetandroid.ui.main.ProfileFragment"
+              android:name="com.ximeft29.gastetandroid.ui.main.ProfileFragment"
               android:label="fragment_profile"
               tools:layout="@layout/fragment_profile">
     </fragment>
 
     <fragment android:id="@+id/homeFragment"
-              android:name="com.example.alextrujillo.gastetandroid.ui.main.HomeFragment"
+              android:name="com.ximeft29.gastetandroid.ui.main.HomeFragment"
               android:label="fragment_home"
               tools:layout="@layout/fragment_home">
     </fragment>
 
 
     <fragment android:id="@+id/registrationFragment"
-              android:name="com.example.alextrujillo.gastetandroid.ui.login.RegistrationFragment"
+              android:name="com.ximeft29.gastetandroid.ui.login.RegistrationFragment"
               android:label="fragment_registration"/>
 
     <fragment android:id="@+id/loginFragment"
-              android:name="com.example.alextrujillo.gastetandroid.ui.login.LoginFragment"
+              android:name="com.ximeft29.gastetandroid.ui.login.LoginFragment"
               android:label="@layout/fragment_login">
         <action android:id="@+id/action_loginFragment_to_registrationFragment"
                 app:destination="@id/registrationFragment"
