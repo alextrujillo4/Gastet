@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/mapa"
+    <item android:id="@+id/refresh"
           app:showAsAction="always"
-          android:icon="@drawable/round_location_on_24"
-          android:title="mapa" />
+          android:icon="@drawable/round_refresh_24"
+          android:title="refresh" />
 
 </menu>
