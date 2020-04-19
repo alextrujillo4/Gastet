@@ -1,20 +1,24 @@
 package com.ximeft29.gastetandroid.ui.login
 
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.addCallback
+import androidx.core.content.ContextCompat
 import androidx.navigation.NavOptions
 import androidx.navigation.Navigation
-import com.ximeft29.gastetandroid.R
+import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
+import com.ximeft29.gastetandroid.R
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.main_activity.*
-import androidx.navigation.fragment.NavHostFragment
 
 class LoginFragment : androidx.fragment.app.Fragment(), View.OnClickListener {
     private var auth: FirebaseAuth? = null
@@ -56,6 +60,21 @@ class LoginFragment : androidx.fragment.app.Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v!!.id) {
+            R.id.loginResetButton -> {
+
+                val snackbarcustom = Snackbar.make(v,"¿Tienes problemas? Envíanos un mail",Snackbar.LENGTH_LONG)
+                    .setAction("Enviar",View.OnClickListener {
+                        val emailIntent = Intent(Intent.ACTION_SEND)
+                        emailIntent.data = Uri.parse("mailto:abc@xyz.com")
+                        emailIntent.type = "message/rfc822"
+                        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Gastet Android Ayuda")
+                        emailIntent.putExtra(Intent.EXTRA_TEXT, "Hola!. Necesito ayuda para recuperar mi contraseña")
+                        startActivity(Intent.createChooser(emailIntent, "Gastet eMail"))
+                    })
+                snackbarcustom.setBackgroundTint(ContextCompat.getColor(activity!!, R.color.secondaryColor))
+                snackbarcustom.show()
+
+            }
             R.id.loginRegistrarButton -> {
                 Navigation.findNavController(this.activity!!, R.id.my_nav_host_fragment)
                     .navigate(R.id.registrationFragment)
