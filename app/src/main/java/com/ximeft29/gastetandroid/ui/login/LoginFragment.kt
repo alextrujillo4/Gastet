@@ -65,7 +65,7 @@ class LoginFragment : androidx.fragment.app.Fragment(), View.OnClickListener {
                 val snackbarcustom = Snackbar.make(v,"¿Tienes problemas? Envíanos un mail",Snackbar.LENGTH_LONG)
                     .setAction("Enviar",View.OnClickListener {
                         val emailIntent = Intent(Intent.ACTION_SEND)
-                        emailIntent.data = Uri.parse("mailto:abc@xyz.com")
+                        emailIntent.data = Uri.parse("mailto:ximeft29@gmail.com")
                         emailIntent.type = "message/rfc822"
                         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Gastet Android Ayuda")
                         emailIntent.putExtra(Intent.EXTRA_TEXT, "Hola!. Necesito ayuda para recuperar mi contraseña")
