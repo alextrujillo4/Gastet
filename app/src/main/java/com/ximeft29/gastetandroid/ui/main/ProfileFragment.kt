@@ -106,16 +106,11 @@ class ProfileFragment : androidx.fragment.app.Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
         if (id == R.id.cerrarSesion) {
-            Toast.makeText(context, "cerrarSesion", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Cerrando Sesión ...", Toast.LENGTH_SHORT).show()
             FirebaseAuth.getInstance().signOut()
-
             activity!!.bottomNavigationView.visibility = View.GONE
             activity!!.mainAppBarLayout.visibility = View.GONE
-
-            Toast.makeText(context, "change", Toast.LENGTH_SHORT).show()
-            findNavController(this).navigate(R.id.loginFragment,null, NavOptions.Builder()
-                .setPopUpTo(R.id.profileFragment, true)
-                .build())
+            findNavController(this).navigate(R.id.loginFragment)
         }else if(id == R.id.editUser){
             Toast.makeText(context, "Editar Usuario", Toast.LENGTH_SHORT).show()
         }

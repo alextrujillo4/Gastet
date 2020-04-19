@@ -82,6 +82,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,NavController.OnD
             bottomNavigationView.visibility =  View.VISIBLE
             mainAppBarLayout.visibility=  View.VISIBLE
 
+
     }
 
 
